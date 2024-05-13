@@ -450,20 +450,20 @@ function static_vercel_config(builder, config, dir) {
 	for (const [path, page] of builder.prerendered.pages) {
 		let overrides_path = path.slice(1);
 
-		if (path !== '/') {
-			/** @type {string | undefined} */
-			let counterpart_route = path + '/';
+		// if (path !== '/') {
+		// 	/** @type {string | undefined} */
+		// 	let counterpart_route = path + '/';
 
-			if (path.endsWith('/')) {
-				counterpart_route = path.slice(0, -1);
-				overrides_path = path.slice(1, -1);
-			}
+		// 	if (path.endsWith('/')) {
+		// 		counterpart_route = path.slice(0, -1);
+		// 		overrides_path = path.slice(1, -1);
+		// 	}
 
-			prerendered_redirects.push(
-				{ src: path, dest: counterpart_route },
-				{ src: counterpart_route, status: 308, headers: { Location: path } }
-			);
-		}
+		// 	prerendered_redirects.push(
+		// 		{ src: path, dest: counterpart_route },
+		// 		{ src: counterpart_route, status: 308, headers: { Location: path } }
+		// 	);
+		// }
 
 		overrides[page.file] = { path: overrides_path };
 	}
