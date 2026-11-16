@@ -13,7 +13,10 @@ const get_default_runtime = () => {
 	const major = process.version.slice(1).split('.')[0];
 	if (major === '18') return 'nodejs18.x';
 	if (major === '20') return 'nodejs20.x';
-
+	if (major === '22') return 'nodejs22.x';
+	if (major === '24') return 'nodejs24.x';
+	if (major === '26') return 'nodejs26.x';
+	
 	throw new Error(
 		`Unsupported Node.js version: ${process.version}. Please use Node 18 or Node 20 to build your project, or explicitly specify a runtime in your adapter configuration.`
 	);
